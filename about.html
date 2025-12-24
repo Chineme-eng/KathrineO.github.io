@@ -3,42 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About • Pictology</title>
+  <title>Pictology • Home</title>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-
-    body {
-      background: linear-gradient(135deg, #fff0e5, #ffd3b6);
-      color: #222;
-      overflow-x: hidden;
-      position: relative;
-    }
+    body { background: linear-gradient(135deg, #fff0e5, #ffd3b6); color: #222; overflow-x: hidden; }
 
     header {
+      position: relative;
       background: linear-gradient(135deg, #ff7e5f, #feb47b);
       color: white;
-      padding: 60px 20px;
       text-align: center;
-      position: relative;
+      padding: 100px 20px 80px;
       overflow: hidden;
     }
 
-    nav { margin-top: 15px; }
-    nav a {
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: slideIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #ff6f61, #ffb677);
       color: white;
-      margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
-      opacity: 0.9;
+      transition: transform 0.3s;
+      animation: fadeIn 2.5s ease forwards;
+      opacity: 0;
+    }
+    .cta-button:hover { transform: scale(1.05); }
+
+    @keyframes slideIn { to { opacity: 1; transform: translateY(0); } from { transform: translateY(-50px); opacity: 0; } }
+    @keyframes fadeIn { to { opacity: 1; } from { opacity: 0; } }
+
+    nav {
+      margin-top: 20px;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
       transition: opacity 0.3s;
     }
-    nav a:hover { opacity: 1; text-decoration: underline; }
+    nav a:hover { opacity: 0.8; text-decoration: underline; }
 
     section {
       max-width: 1000px;
-      margin: auto;
-      padding: 60px 20px;
+      margin: 60px auto;
+      padding: 20px;
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.8s ease;
@@ -47,9 +74,7 @@
     }
     section.visible { opacity: 1; transform: translateY(0); }
 
-    h2 { margin-bottom: 15px; color: #ff6f61; }
-
-    p { line-height: 1.6; margin-bottom: 10px; }
+    h2 { margin-bottom: 20px; color: #ff6f61; text-align: center; }
 
     .grid {
       display: grid;
@@ -65,10 +90,7 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
       transition: transform 0.5s, box-shadow 0.5s;
     }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
 
     .button {
       display: inline-block;
@@ -101,11 +123,9 @@
       animation: float 20s infinite linear;
       z-index: 0;
     }
-
     .shape.small { width: 50px; height: 50px; }
     .shape.medium { width: 80px; height: 80px; }
     .shape.large { width: 120px; height: 120px; }
-
     .shape.orange { background: #ff7e5f; }
     .shape.yellow { background: #ffb677; }
     .shape.red { background: #ff6f61; }
@@ -121,67 +141,25 @@
 <body>
 
 <header>
-  <h1>Katherine Oduah</h1>
-  <p>Founder of Pictology • Art × Technology</p>
+  <h1>Welcome to Pictology</h1>
+  <p>Art meets Technology — explore, create, and connect</p>
+  <a href="#portfolio" class="cta-button">View Portfolio</a>
   <nav>
-    <a href="#intro">Intro</a>
-    <a href="#work">My Work</a>
-    <a href="#interests">Interests</a>
+    <a href="#about">About</a>
     <a href="#portfolio">Portfolio</a>
+    <a href="#blog">Blog</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- Floating shapes in header -->
+  <!-- Floating shapes -->
   <div class="shape small orange" style="top:10%; left:5%; animation-duration:18s;"></div>
   <div class="shape medium yellow" style="top:30%; left:70%; animation-duration:22s;"></div>
   <div class="shape large red" style="top:60%; left:20%; animation-duration:25s;"></div>
 </header>
 
-<section id="intro">
-  <h2>Introduction</h2>
-  <p>
-    Hi, I’m Katherine (Chineme) Oduah — a Nigerian-American creative who found her
-    voice behind the camera before she ever found it in words. I moved to the
-    United States at 13, began college at 16, and have been creating ever since.
-  </p>
-  <p>
-    Pictology was born from my desire to create a space where artists, creators,
-    and innovators can exist freely, share ideas, and grow together.
-  </p>
-</section>
-
-<section id="work">
-  <h2>What I Do</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Photography</h3>
-      <p>Visual storytelling through portraits, concepts, and experimental shoots. Focus on emotion, identity, and culture.</p>
-    </div>
-    <div class="card">
-      <h3>Creative Direction</h3>
-      <p>Building ideas from concept to execution — branding, visuals, and creative strategy for digital spaces.</p>
-    </div>
-    <div class="card">
-      <h3>Pictology</h3>
-      <p>Founder of Pictology, an online creative community blending art, technology, and collaboration.</p>
-    </div>
-  </div>
-</section>
-
-<section id="interests">
-  <h2>Interests & Passions</h2>
-  <div class="grid">
-    <div class="card">
-      <p>📸 Photography & visual storytelling</p>
-      <p>🎨 Digital art & design</p>
-      <p>🎥 Film & creative media</p>
-    </div>
-    <div class="card">
-      <p>💡 Tech for creatives</p>
-      <p>🌍 Community building</p>
-      <p>✨ Creative self-expression</p>
-    </div>
-  </div>
+<section id="about">
+  <h2>About Me</h2>
+  <p>Katherine Oduah, Nigerian-American creative. Founder of Pictology, a platform where artists, photographers, and creators connect and grow.</p>
 </section>
 
 <section id="portfolio">
@@ -200,11 +178,22 @@
   </div>
 </section>
 
+<section id="blog">
+  <h2>Blog</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Latest Post</h3>
+      <p>Short preview of your post. Engage visitors with creative tips, insights, or stories.</p>
+      <a href="#" class="button">Read More</a>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
-  <h2>Contact Me</h2>
-  <p>📧 Email: katherineoduah@gmail.com</p>
-  <p>📞 Phone: 516-440-0891</p>
-  <p>🌐 GitHub: github.com/yourusername</p>
+  <h2>Contact</h2>
+  <p>Email: katherineoduah@gmail.com</p>
+  <p>Phone: 516-440-0891</p>
+  <p>GitHub: github.com/yourusername</p>
 </section>
 
 <footer>
@@ -212,7 +201,7 @@
 </footer>
 
 <script>
-  // Fade-in on scroll
+  // Scroll animations
   const sections = document.querySelectorAll('section');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
